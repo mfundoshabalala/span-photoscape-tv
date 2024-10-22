@@ -4,6 +4,9 @@ import './App.css'
 import TopicMenu from './components/Navigation/TopicMenu';
 import { fetchPhotos, fetchTopics } from './services/api';
 import PhotoGrid from './components/PhotoGrid/PhotoGrid';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
+import LoadingSpinner from './components/UI/LoadingSpinner';
 
 function App() {
   const [topics, setTopics] = useState<Topic[]>([]);
@@ -57,16 +60,21 @@ function App() {
   }
 
   return (
-    <div className='p-4'>
-      <h1 className="text-3xl font-bold mb-4">PhotoScape TV</h1>
-      { isLoading ? (
-        <div>Loading</div> //FIXME: add a loading spinner
-      ) : (
-        <>
-          <TopicMenu topics={topics} onSelectTopic={handleTopicSelect} />
-          {selectedTopic && <PhotoGrid photos={photos} />}
-        </>
-      )}
+    <div className='app-container'>
+      <Header />
+      <div className="main-layout">
+        { isLoading ? <LoadingSpinner /> : (
+          <>
+            <TopicMenu topics={topics} onSelectTopic={handleTopicSelect} />
+            <section className="flex-1 overflow-x-auto">
+              { selectedTopic ? <PhotoGrid photos={photos} />
+                : <div className="h-full text-center p-4 flex items-center justify-center">Select a topic to view photos</div>
+              }
+            </section>
+          </>
+        )}
+      </div>
+      <Footer />
     </div>
   );
 }

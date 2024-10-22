@@ -1,9 +1,26 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  /* text-align: center; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+.app-container {
+  @apply flex flex-col max-h-screen h-screen gap-y-4; /* NOTE: app is always equal the viewport height */
+}
+
+.header {
+  @apply text-center font-bold p-4;
+}
+
+.main-layout {
+  @apply flex-1 flex w-full;
+}
+
+.footer {
+  @apply text-center text-sm text-slate-100 font-medium p-4;
+}
+
 
 .logo {
   height: 6em;

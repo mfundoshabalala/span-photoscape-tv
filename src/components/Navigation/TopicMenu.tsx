@@ -10,12 +10,12 @@ const TopicMenu: React.FC<TopicMenuProps> = ({ topics = [], onSelectTopic }) => 
 
 	return (
 		<div className="topic-menu">
-			<h2 className="text-xl font-semibold mb-2">Topics</h2>
-			<ul className="flex space-x-4 overflow-x-auto p-4 list-none">
+			{/* <h2 className="text-xl font-semibold mb-2">Topics</h2> */}
+			<ul className="flex flex-col gap-y-1 overflow-x-auto p-4 list-none">
 				{topics.map((topic) => (
 					<li key={topic.id}>
 						<button type='button'
-							className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+							className="w-56 rounded-none text-sm px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
 							onClick={() => onSelectTopic(topic.slug)}>
 						{topic.title}
 						</button>
