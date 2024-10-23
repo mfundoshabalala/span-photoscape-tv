@@ -77,7 +77,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      <Header  handleShowTopics={handleBackToTopics} isGridActive={isGridActive} />
       <div className="main-layout">
         {isLoading ? (
           <LoadingSpinner />
@@ -89,20 +89,12 @@ function App() {
 
             <section className={`flex-1 overflow-x-auto ${isGridActive ? 'grid-active' : ''}`}>
               {selectedTopic ? (
-                <>
-                  <button
-                    className="mb-4 p-2 bg-blue-500 text-white rounded"
-                    onClick={handleBackToTopics}>
-                    Back to Topics
-                  </button>
-
-                  <PhotoGrid
-                    photos={photos}
-                    // onImageFocus={handleImageFocus}
-                    // onImageBlur={handleImageBlur}
-                    isGridActive={isGridActive}
-                  />
-                </>
+                <PhotoGrid
+                  photos={photos}
+                  // onImageFocus={handleImageFocus}
+                  // onImageBlur={handleImageBlur}
+                  isGridActive={isGridActive}
+                />
               ) : (
                 <div className="h-full text-center p-4 flex items-center justify-center">
                   Select a topic to view photos
