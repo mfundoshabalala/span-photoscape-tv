@@ -53,7 +53,7 @@ VITE_UNSPLASH_ACCESS_KEY=your_api_key_here
 ```bash
 npm start
 ```
-5. The application will open in your default browser at http://localhost:3000
+5. The application will open in your default browser at http://localhost:5173/
 
 
 ## Challenges
