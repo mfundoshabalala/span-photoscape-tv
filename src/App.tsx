@@ -41,7 +41,6 @@ function App() {
           setError(null);
           const fetchedPhotos = await fetchPhotos(selectedTopic);
           setPhotos(fetchedPhotos);
-          setIsGridActive(true);
         } catch (error) {
           setError('Error loading photos');
           console.log('Error loading photos: ', error);
@@ -50,22 +49,21 @@ function App() {
         }
       };
       loadPhotos();
-    } else {
-      setIsGridActive(false);
     }
   }, [selectedTopic]);
 
   const handleTopicSelect = (topic: string) => {
     setSelectedTopic(topic);
+    setIsGridActive(false);
   };
 
-  // const handleImageFocus = () => {
-  //   setIsGridActive(true);
-  // };
+  const handleImageFocus = () => {
+    setIsGridActive(true);
+  };
 
-  // const handleImageBlur = () => {
-  //   setIsGridActive(false);
-  // };
+  const handleImageBlur = () => {
+    setIsGridActive(false);
+  };
 
   const handleBackToTopics = () => {
     setIsGridActive(false);
@@ -91,8 +89,8 @@ function App() {
               {selectedTopic ? (
                 <PhotoGrid
                   photos={photos}
-                  // onImageFocus={handleImageFocus}
-                  // onImageBlur={handleImageBlur}
+                  onImageFocus={handleImageFocus}
+                  onImageBlur={handleImageBlur}
                   isGridActive={isGridActive}
                 />
               ) : (
@@ -105,31 +103,6 @@ function App() {
         )}
       </div>
       <Footer />
-
-      {/* <style>{`
-        .topic-menu-container {
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 250px;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease-in-out;
-        }
-
-        .topic-menu-container:hover {
-          transform: translateX(0);
-        }
-
-        .grid-active .topic-menu-container {
-          display: none;
-        }
-
-        .main-layout {
-          display: flex;
-          position: relative;
-        }
-      `}</style> */}
     </div>
   );
 }

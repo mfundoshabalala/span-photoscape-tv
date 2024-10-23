@@ -8,7 +8,7 @@ const Header: React.FC<HeaderProps> = ({ handleShowTopics, isGridActive }) => {
 		<header className="header flex">
 			{ isGridActive &&
 				<button
-					className="mb-4 p-2  text-white rounded"
+					className="text-white rounded"
 					onClick={handleShowTopics}>
 				Show Topics
 				</button>
