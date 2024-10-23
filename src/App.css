@@ -14,7 +14,7 @@
 }
 
 .main-layout {
-  @apply flex-1 flex w-full;
+  @apply flex-1 flex w-full relative;
 }
 
 .footer {
@@ -23,6 +23,10 @@
 
 .slider-container {
   @apply h-full;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 

@@ -1,7 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageGrid: React.FC<ImageGridProps> = ({ photos }) => {
+interface ImageGridProps {
+  photos: Photo[];
+  isGridActive: boolean;
+  // onImageFocus: () => void;
+  // onImageBlur: () => void;
+}
+
+const PhotoGrid: React.FC<ImageGridProps> = ({ photos }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftCaret, setShowLeftCaret] = useState(false);
   const [showRightCaret, setShowRightCaret] = useState(true);
@@ -33,14 +40,13 @@ const ImageGrid: React.FC<ImageGridProps> = ({ photos }) => {
           <ChevronLeft className="h-6 w-6" />
         </button>
       )}
-
       {/* Image Grid Container */}
       <div
         ref={scrollContainerRef}
         onScroll={handleScroll}
         className="h-full overflow-x-auto scroll-smooth no-scrollbar px-12"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <div className="grid grid-flow-col auto-cols-max gap-4 h-full grid-rows-2 rounded-md">
+        <div className="grid grid-flow-col auto-cols-max gap-2 h-full grid-rows-2 rounded-md">
           {photos.map((photo) => (
             <div key={photo.id} className="rounded-lg overflow-hidden aspect-video h-32 sm:h-48 md:h-64 lg:h-80">
               <img
@@ -62,14 +68,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({ photos }) => {
           <ChevronRight className="h-6 w-6" />
         </button>
       )}
-
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </div>
   );
 };
 
-export default ImageGrid;
+export default PhotoGrid;
