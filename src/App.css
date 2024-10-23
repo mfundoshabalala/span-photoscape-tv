@@ -21,6 +21,10 @@
   @apply text-center text-sm text-slate-100 font-medium p-4;
 }
 
+.slider-container {
+  @apply h-full;
+}
+
 
 .logo {
   height: 6em;

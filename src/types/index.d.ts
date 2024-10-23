@@ -17,6 +17,6 @@ interface Photo {
   alt_description: string;
 }
 
-interface PhotoGridProps {
+interface ImageGridProps {
   photos: Photo[];
 }

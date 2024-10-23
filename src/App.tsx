@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState } from 'react';
 import './App.css'
+import { useEffect, useState } from 'react';
 import TopicMenu from './components/Navigation/TopicMenu';
 import { fetchPhotos, fetchTopics } from './services/api';
-import PhotoGrid from './components/PhotoGrid/PhotoGrid';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import LoadingSpinner from './components/UI/LoadingSpinner';
+import PhotoGrid from './components/PhotoGrid/PhotoGrid';
 
 function App() {
   const [topics, setTopics] = useState<Topic[]>([]);
